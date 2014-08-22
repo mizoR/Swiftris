@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  Swiftris
-//
-//  Created by 0237 on 2014/08/22.
-//  Copyright (c) 2014年 Bloc. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
