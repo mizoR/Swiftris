@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1309E2CD19B713B400DD419F /* Swiftris.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1309E2CC19B713B400DD419F /* Swiftris.swift */; };
 		1323266319A749D6005E6F3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1323266219A749D6005E6F3F /* AppDelegate.swift */; };
 		1323266719A749D6005E6F3F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1323266619A749D6005E6F3F /* GameScene.swift */; };
 		1323266919A749D6005E6F3F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1323266819A749D6005E6F3F /* GameViewController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1309E2CC19B713B400DD419F /* Swiftris.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftris.swift; sourceTree = "<group>"; };
 		1323265D19A749D6005E6F3F /* Swiftris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1323266119A749D6005E6F3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1323266219A749D6005E6F3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				13DEB1C919B086A500C7168B /* JShape.swift */,
 				13DEB1CB19B086CF00C7168B /* SShape.swift */,
 				13DEB1CD19B086EA00C7168B /* ZShape.swift */,
+				1309E2CC19B713B400DD419F /* Swiftris.swift */,
 			);
 			path = Swiftris;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				13DEB1C219B0859300C7168B /* SquareShape.swift in Sources */,
 				1323266719A749D6005E6F3F /* GameScene.swift in Sources */,
 				13DEB1CA19B086A500C7168B /* JShape.swift in Sources */,
+				1309E2CD19B713B400DD419F /* Swiftris.swift in Sources */,
 				13DEB1C019B079AB00C7168B /* Shape.swift in Sources */,
 				13D15F4B19ADDAC0007B9472 /* Array2D.swift in Sources */,
 				13DEB1C619B0864D00C7168B /* LineShape.swift in Sources */,
