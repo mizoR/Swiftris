@@ -1,7 +1,7 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, SwiftrisDelegate {
     var scene: GameScene!
     var swiftris: Swiftris!
 
@@ -16,19 +16,10 @@ class GameViewController: UIViewController {
         
         scene.tick = didTick
         swiftris = Swiftris()
+        swiftris.delegate = self
         swiftris.beginGame()
         
         skView.presentScene(scene)
-        
-        scene.addPreviewShapeScreen(swiftris.nextShape!) {
-            self.swiftris.nextShape?.moveTo(StartingColumn, row: StartingRow)
-            self.scene.movePreviewShape(self.swiftris.nextShape!) {
-                let nextShapes = self.swiftris.newShape()
-                self.scene.startTicking()
-                self.scene.addPreviewShapeScreen(nextShapes.nextShape!) {}
-                
-            }
-        }
     }
 
     override func prefersStatusBarHidden() -> Bool {
@@ -36,7 +27,51 @@ class GameViewController: UIViewController {
     }
     
     func didTick() {
-        swiftris.fallingShape?.lowerShapeByOneRow()
-        scene.redrawShape(swiftris.fallingShape!, completion: {})
+        swiftris.letShapeFall()
     }
+    
+    func nextShape() {
+        let newShapes = swiftris.newShape()
+        if let fallingShape = newShapes.fallingShape {
+            self.scene.addPreviewShapeScreen(newShapes.nextShape!) {}
+            self.scene.movePreviewShape(fallingShape) {
+                self.view.userInteractionEnabled = true
+                self.scene.startTicking()
+            }
+        }
+    }
+    
+    func gameDidBegin(swiftris: Swiftris) {
+        if swiftris.nextShape != nil && swiftris.nextShape!.blocks[0].sprite == nil {
+            scene.addPreviewShapeScreen(swiftris.nextShape!) {
+                self.nextShape()
+            }
+        } else {
+            nextShape()
+        }
+    }
+    
+    func gameDidEnd(swiftris: Swiftris) {
+        view.userInteractionEnabled = false
+        scene.stopTicking()
+    }
+    
+    func gameDidLevelUp(swiftris: Swiftris) {
+        
+    }
+    
+    func gameShapeDidDrop(swiftris: Swiftris) {
+        
+    }
+    
+    func gameShapeDidLand(swiftris: Swiftris) {
+        scene.stopTicking()
+        nextShape()
+    }
+    
+    // #3
+    func gameShapeDidMove(swiftris: Swiftris) {
+        scene.redrawShape(swiftris.fallingShape!) {}
+    }
+
 }
