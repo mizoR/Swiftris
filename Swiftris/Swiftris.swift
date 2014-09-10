@@ -118,6 +118,17 @@ class Swiftris {
         }
     }
     
+    func rotateShape() {
+        if let shape = fallingShape {
+            shape.rotateClockwise()
+            if detectIllegalPlacement() {
+                shape.rotateCounterClockwise()
+            } else {
+                delegate?.gameShapeDidMove(self)
+            }
+        }
+    }
+
     func moveShapeRight() {
         if let shape = fallingShape {
             shape.shiftRightByOneColumn()
